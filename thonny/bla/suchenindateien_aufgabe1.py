@@ -1,0 +1,22 @@
+import matplotlib.pyplot as p
+gerade = ungerade = ges = 0
+#gerade_zahlen = []
+with open("gerade_binaerzahlen.txt","w") as file:
+    file.write("")
+with open("gerade_binaerzahlen.txt","a") as file_neu:
+    with open("binaerzahlen.txt","r") as file:
+        for i in file:
+            b = i.strip()
+            if b.endswith("0"):
+                gerade += 1
+                file_neu.write(f"{b} \n")
+            else:
+                ungerade += 1
+            ges += 1
+with open("gerade_binaerzahlen.txt","r") as file:
+    ger = file.read()
+print(ger)
+anzahl = [gerade,ungerade]
+bes = ["gerade Binärzahlen", "ungerade Binärzahlen"]
+p.bar(bes,anzahl,linewidth=0.15)
+p.show()
